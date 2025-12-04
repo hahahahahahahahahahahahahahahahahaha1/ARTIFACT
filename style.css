@@ -1,0 +1,312 @@
+/* ========================================
+   ARTifacts — Black & White Morphism UI
+   Soft • Glossy • Minimal • Tactile Depth
+======================================== */
+
+:root {
+  --bg: #f8f8f8;
+  --fg: #000;
+  --card-bg: #ffffff;
+  --radius: 14px;
+  --shadow-light: rgba(255, 255, 255, 0.8);
+  --shadow-dark: rgba(0, 0, 0, 0.15);
+  font-family: "Inter", Arial, sans-serif;
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Background */
+body {
+  background: linear-gradient(145deg, #fafafa, #eaeaea);
+  color: var(--fg);
+  padding: 40px;
+  line-height: 1.6;
+}
+
+/* Headings */
+h1, h2 {
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+h1 {
+  font-size: 36px;
+  font-weight: 800;
+  margin-bottom: 25px;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+/* ======================================
+   MORPHISM CONTAINERS
+====================================== */
+
+.nav-box,
+.card,
+.profile-container,
+.profile-pic-box,
+.upload-container {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 25px;
+  box-shadow:
+    6px 6px 14px var(--shadow-dark),
+    -6px -6px 14px var(--shadow-light);
+}
+
+/* NAVIGATION BOX */
+.nav-box {
+  display: flex;
+  gap: 15px;
+  flex-direction: column;
+  max-width: 340px;
+}
+
+/* ======================================
+   BUTTONS & LINKS — Morphism raised buttons
+====================================== */
+a, button {
+  display: inline-block;
+  padding: 12px 18px;
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
+  background: #fff;
+  color: #000;
+  border: none;
+  box-shadow:
+    4px 4px 10px var(--shadow-dark),
+    -4px -4px 10px var(--shadow-light);
+  transition: 0.2s ease;
+}
+
+a:hover, button:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    6px 6px 14px var(--shadow-dark),
+    -6px -6px 14px var(--shadow-light);
+}
+
+a:active, button:active {
+  transform: translateY(1px);
+  box-shadow:
+    inset 4px 4px 8px var(--shadow-dark),
+    inset -4px -4px 8px var(--shadow-light);
+}
+
+/* BACK BUTTON */
+.back-btn {
+  margin-bottom: 20px;
+  padding: 10px 16px;
+}
+
+/* ======================================
+   INPUTS — Morphism inset
+====================================== */
+input[type="file"],
+input[type="text"],
+input[type="password"],
+textarea {
+  width: 100%;
+  padding: 14px;
+  border-radius: var(--radius);
+  margin-top: 12px;
+  background: #f5f5f5;
+  border: none;
+  font-size: 15px;
+  color: #000;
+
+  box-shadow:
+    inset 3px 3px 8px var(--shadow-dark),
+    inset -3px -3px 8px var(--shadow-light);
+}
+
+textarea {
+  resize: none;
+}
+
+/* ======================================
+   UPLOAD PAGE
+====================================== */
+.upload-container {
+  max-width: 650px;
+}
+
+/* Artwork Cards */
+.card {
+  margin-top: 25px;
+  text-align: left;
+}
+
+.card img {
+  width: 100%;
+  border-radius: var(--radius);
+  margin-bottom: 12px;
+  box-shadow:
+    4px 4px 10px var(--shadow-dark),
+    -4px -4px 10px var(--shadow-light);
+}
+
+/* ======================================
+   PROFILE PAGE
+====================================== */
+.profile-container {
+  max-width: 500px;
+}
+
+.profile-pic-box {
+  text-align: center;
+}
+
+#profilePic {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  margin-bottom: 12px;
+
+  box-shadow:
+    4px 4px 10px var(--shadow-dark),
+    -4px -4px 10px var(--shadow-light);
+}
+
+/* ======================================
+   ARTIST PORTFOLIO
+====================================== */
+.profile-display {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.profile-display-pic {
+  width: 160px;
+  height: 160px;
+  border-radius: var(--radius);
+  object-fit: cover;
+
+  box-shadow:
+    4px 4px 10px var(--shadow-dark),
+    -4px -4px 10px var(--shadow-light);
+  margin-bottom: 18px;
+}
+
+.artist-bio {
+  max-width: 650px;
+  margin: 0 auto;
+  color: #333;
+  font-size: 16px;
+}
+
+/* Artwork Grid */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 25px;
+}
+
+.gallery-grid img {
+  width: 100%;
+  border-radius: var(--radius);
+  box-shadow:
+    4px 4px 10px var(--shadow-dark),
+    -4px -4px 10px var(--shadow-light);
+}
+
+/* ======================================
+   AR VIEWER UI
+====================================== */
+#loading {
+  position: absolute;
+  top: 70px;
+  left: 20px;
+  background: #fff;
+  color: #000;
+  padding: 12px 20px;
+  border-radius: var(--radius);
+  font-weight: 600;
+
+  box-shadow:
+    5px 5px 12px var(--shadow-dark),
+    -5px -5px 12px var(--shadow-light);
+  z-index: 999;
+}
+
+#ar-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 12px;
+}
+
+.ar-btn {
+  padding: 10px 18px;
+  font-weight: 600;
+  border-radius: var(--radius);
+  background: #fff;
+  box-shadow:
+    4px 4px 10px var(--shadow-dark),
+    -4px -4px 10px var(--shadow-light);
+}
+
+.ar-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* ======================================
+   NEW CLASSES FOR LOGIN / SIGNUP / INTRO
+   (NO CHANGES TO ORIGINAL MORPHISM UI)
+====================================== */
+
+/* Top bar for pages */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Animated intro blob */
+.blob {
+  width: 220px;
+  height: 220px;
+  background: #ffffff;
+  border-radius: 50%;
+  box-shadow:
+    10px 10px 25px var(--shadow-dark),
+    -10px -10px 25px var(--shadow-light);
+  animation: morph 6s ease-in-out infinite;
+}
+
+@keyframes morph {
+  0% { border-radius: 55% 45% 60% 40% / 60% 50% 55% 45%; }
+  50% { border-radius: 45% 55% 40% 60% / 45% 55% 40% 60%; }
+  100% { border-radius: 55% 45% 60% 40% / 60% 50% 55% 45%; }
+}
+
+/* Login & signup boxes */
+.login-box,
+.signup-box {
+  width: 340px;
+  padding: 30px;
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow:
+    6px 6px 14px var(--shadow-dark),
+    -6px -6px 14px var(--shadow-light);
+  text-align: center;
+}
+
+/* Enter button in intro page */
+.enter-btn {
+  margin-top: 20px;
+}

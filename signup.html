@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sign Up — ARTifacts</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      padding: 0;
+      background: linear-gradient(145deg, #fafafa, #eaeaea);
+    }
+
+    .signup-box {
+      width: 340px;
+      padding: 30px;
+      text-align: center;
+
+      background: #fff;
+      border-radius: 14px;
+      box-shadow:
+        6px 6px 14px rgba(0,0,0,0.15),
+        -6px -6px 14px rgba(255,255,255,0.9);
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      font-size: 30px;
+      font-weight: 800;
+    }
+
+    input {
+      margin-top: 15px;
+    }
+
+    .small-text {
+      margin-top: 15px;
+      font-size: 14px;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="signup-box">
+    <h1>Create Account</h1>
+
+    <input type="text" id="newUser" placeholder="Choose Username">
+
+    <input type="password" id="newPass" placeholder="Choose Password">
+
+    <button onclick="createAccount()">Sign Up</button>
+
+    <p class="small-text">
+      Already have an account? <a href="login.html">Login</a>
+    </p>
+  </div>
+
+  <script>
+    function loadArtists() {
+      return JSON.parse(localStorage.getItem("artists") || "{}");
+    }
+
+    function saveArtists(data) {
+      localStorage.setItem("artists", JSON.stringify(data));
+    }
+
+    function createAccount() {
+      const username = document.getElementById("newUser").value.trim();
+      const password = document.getElementById("newPass").value.trim();
+
+      if (!username || !password) {
+        alert("Please enter a username and password.");
+        return;
+      }
+
+      const artists = loadArtists();
+
+      if (artists[username]) {
+        alert("Username already exists. Try another.");
+        return;
+      }
+
+      // Create new artist template
+      artists[username] = {
+        password: password,
+        profile: {
+          name: "",
+          bio: "",
+          profilePic: ""
+        },
+        artworks: []
+      };
+
+      saveArtists(artists);
+
+      alert("Account created! You can now log in.");
+      window.location.href = "login.html";
+    }
+  </script>
+
+</body>
+</html>
